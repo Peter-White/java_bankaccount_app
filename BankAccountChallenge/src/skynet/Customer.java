@@ -22,10 +22,6 @@ public class Customer {
 	public ArrayList<Double> getTransactions() {
 		return transactions;
 	}
-
-	public void updateTrans(int index, Double newTrans) {
-		getTransactions().set(index, newTrans);
-	}
 	
 	public void deleteTrans(int index) {
 		String trans = getTransactions().get(index).toString();
@@ -41,7 +37,7 @@ public class Customer {
 	public void listTransactions() {
 		if(getTransactions().size() > 0) {
 			for (int i = 0; i < getTransactions().size(); i++) {
-				System.out.println(i + ". " + getTransactions().get(i));
+				System.out.println((i+1) + ". " + getTransactions().get(i));
 			}			
 		} else {
 			System.out.println("You have no transactions. You have no money.");

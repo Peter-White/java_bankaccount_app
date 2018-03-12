@@ -200,12 +200,9 @@ public class Main {
 						addCustomerTransaction(currentCustomer);
 						break;
 					case 3:
-						updateCustomerTransaction(currentCustomer);
-						break;
-					case 4:
 						deleteCustomerTransaction(currentCustomer);
 						break;
-					case 5:
+					case 4:
 						System.out.println("Back To Branch");
 						customerBack = true;
 						break;
@@ -263,9 +260,8 @@ public class Main {
         System.out.println("\t 0 - To view options.");
         System.out.println("\t 1 - To print the list of transactions.");
         System.out.println("\t 2 - To add a new transaction.");
-        System.out.println("\t 3 - To change a transaction's amount.");
-        System.out.println("\t 4 - To delete a transaction.");
-        System.out.println("\t 5 - To back to branch menu.");
+        System.out.println("\t 3 - To delete a transaction.");
+        System.out.println("\t 4 - To back to branch menu.");
 	}
 	
 	public static void listTransactions(Customer customer) {
@@ -274,5 +270,13 @@ public class Main {
 	
 	public static void addCustomerTransaction(Customer customer) {
 		System.out.println("Enter Transaction Amount");
+		Double trans = scanner.nextDouble();
+		customer.addTransaction(trans);
+	}
+	
+	private static void deleteCustomerTransaction(Customer customer) {
+		System.out.println("Enter transaction index");
+		int position = scanner.nextInt();
+		customer.deleteTrans(position - 1);
 	}
 }
