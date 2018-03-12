@@ -35,12 +35,16 @@ public class Customer {
 	
 	public void addTransaction(Double price) {
 		getTransactions().add(price);
-		System.out.println(price + " added to " + getName() + " '(s) account");
+		System.out.println(price + " added to " + getName() + "'(s) account");
 	}
 	
-	public void listTransaction() {
-		for (int i = 0; i < getTransactions().size(); i++) {
-			System.out.println(i + ". " + getTransactions().get(i));
+	public void listTransactions() {
+		if(getTransactions().size() > 0) {
+			for (int i = 0; i < getTransactions().size(); i++) {
+				System.out.println(i + ". " + getTransactions().get(i));
+			}			
+		} else {
+			System.out.println("You have no transactions. You have no money.");
 		}
 	}
 }

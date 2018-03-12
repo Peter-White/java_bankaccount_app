@@ -31,7 +31,7 @@ public class Branch {
 	public void listCustomers() {
 		if(getCustomers().size() > 0) {
 			for (int i = 0; i < getCustomers().size(); i++) {
-				System.out.println(i + ". " + getCustomers().get(i).getName());
+				System.out.println((i + 1) + ". " + getCustomers().get(i).getName());
 			}
 			System.out.println(getCustomers().size() + " customers");			
 		} else {
@@ -44,9 +44,27 @@ public class Branch {
 		return getCustomers().get(position);
 	}
 	
+	public void updateCustomer(String name, String newName) {
+		int position = findCustomer(name);
+		
+		String oldname = getCustomers().get(position).getName();
+		getCustomers().get(position).setName(newName);
+
+		System.out.println("Customer " + oldname
+				+ " is now " + 
+				getCustomers().get(position).getName());
+	}
+	
+	public void deleteCustomer(int index) {
+		String name = getCustomers().get(index).getName();
+		getCustomers().remove(index);
+		System.out.println(name + " removed");
+	}
+	
 	public int findCustomer(String name) {
 		for (Customer customer : getCustomers()) {
-			if(customer.getName().equals(name)) {
+			String lowered = customer.getName().toLowerCase();
+			if(lowered.equals(name.toLowerCase())) {
 				return getCustomers().indexOf(customer);
 			}
 		}

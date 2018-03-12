@@ -25,7 +25,6 @@ public class Bank {
 
 	public void addBranch(Branch branch) {
 		getBranches().add(branch);
-		System.out.println(branch.getName() + " added");
 	}
 	
 	public Branch getBranch(int position) {
